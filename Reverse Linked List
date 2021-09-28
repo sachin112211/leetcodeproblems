@@ -1,0 +1,35 @@
+method 1 to reverse a linked list
+
+class Solution {
+    public ListNode reverseList(ListNode head) {
+         if(head == null || head.next == null){
+             return head;
+         }
+         ListNode finalcount = reverseList(head.next);
+         ListNode temp = finalcount;
+        while(temp.next != null){
+             temp = temp.next;
+         }
+        temp.next = head;
+         head.next = null;
+          
+         return head;
+      }
+  }
+         
+         
+method 2 to reverse a linked list
+  class Solution {
+    public ListNode reverseList(ListNode head) { 
+        ListNode pre = null;
+        
+        while(head != null){
+            ListNode next_input = head.next;
+            head.next = pre;
+            pre = head;
+            head = next_input;
+        
+        }
+        return pre;
+    }
+}
